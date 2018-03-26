@@ -177,11 +177,11 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			if ($phpcsFile->hasCondition($stackPtr, T_CLOSURE) === true
 				|| $phpcsFile->hasCondition($stackPtr, T_ANON_CLASS) === true)
 			{
-				$expected = ($tokens[$stackPtr]['level'] + 1) + $this->indent;
+				$expected = ($tokens[$stackPtr]['level'] + 1) * $this->indent;
 			}
 			else
 			{
-				$expected = $tokens[$stackPtr]['level'] + $this->indent;
+				$expected = $tokens[$stackPtr]['level'] * $this->indent;
 			}
 
 			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
